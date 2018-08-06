@@ -1,6 +1,7 @@
 import sys
 import re
-import questionParse
+import os
+from questionParse import Question
 class Test():
 	#Test contains data for parsed tests
 
@@ -10,20 +11,23 @@ class Test():
 		self.questions = []
 
 	#input filename for opening test file
-	def readTest(self):
+	def readTest(self, directory):
 		if self.fname == "":
 			sys.exit("no filename for this test object")
 		else:
-			file = open(self.fname, 'r')
+			os.listdir(os.getcwd()+'/'+ directory)
+			file = open(directory+'/'+self.fname, 'r')
 			text = file.read()
 			#unparsed questions
-			rawQuestions = re.split("\n\ [0-9]\.|\n[0-9][0-9]\.",text)
-			self.questions = rawQuestions 
-			count = 0
-			for x in self.questions:
-				print("question", count)
-				print(x)
-				print("\n")
-				count+=1
+			rawQuestions = re.split("(\n\ [0-9]\.|\n[0-9][0-9]\.)",text)
+			for question in rawQuestions:
+				self.questions.append(Question(question))
+				
+			# count = 0
+			# for x in self.questions:
+			# 	print("question", count)
+			# 	print(x)
+			# 	print("\n")
+			# 	count+=1
 
 
