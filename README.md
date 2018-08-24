@@ -1,6 +1,6 @@
 # MackScrambleSolver
 Foreword:
-I recommend trying to write this program yoursefl if you are in this
+I recommend trying to write this program yourself if you are in this
 class. It is a good learning opportunity.  I will post the design in a
 separate file so you can write it in whatever language you want.  
 
